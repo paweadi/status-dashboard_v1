@@ -4,57 +4,58 @@
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <title>Service Status Dashboard</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 20px; }
-  table { width: 100%; border-collapse: collapse; }
-  th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-  th { background-color: #f4f4f4; }
-  .status-up { color: green; font-weight: bold; }
-  .status-down { color: red; font-weight: bold; }
-  .status-unknown { color: gray; font-weight: bold; }
-</style>
+<link rel='stylesheet' href='styles.css'>
 </head>
 <body>
-<h1>Service Status Dashboard</h1>
-<p>Auto-refresh every 5 minutes</p>
+<header>
+  <h1>Service Status Dashboard</h1>
+  <p class='ts'>Auto-refresh every 5 minutes</p>
+</header>
+<main>
 <table>
 <thead>
 <tr><th>Service</th><th>Status</th><th>Link</th></tr>
 </thead>
 <tbody>
-<tr><td>Azure Status</td><td id='azure-status-status'>Loading...</td><td><a href='https://azure.status.microsoft/en-us/status' target='_blank'>View</a></td></tr>
-<tr><td>Azure DevOps</td><td id='azure-devops-status'>Loading...</td><td><a href='https://status.dev.azure.com/' target='_blank'>View</a></td></tr>
-<tr><td>Azure Databricks</td><td id='azure-databricks-status'>Loading...</td><td><a href='https://status.azuredatabricks.net/' target='_blank'>View</a></td></tr>
-<tr><td>JFrog</td><td id='jfrog-status'>Loading...</td><td><a href='https://status.jfrog.io/' target='_blank'>View</a></td></tr>
-<tr><td>Elastic</td><td id='elastic-status'>Loading...</td><td><a href='https://status.elastic.co/' target='_blank'>View</a></td></tr>
-<tr><td>Octopus</td><td id='octopus-status'>Loading...</td><td><a href='https://status.octopus.com/' target='_blank'>View</a></td></tr>
-<tr><td>Lucid</td><td id='lucid-status'>Loading...</td><td><a href='https://status.lucid.co/' target='_blank'>View</a></td></tr>
-<tr><td>Jira Software</td><td id='jira-software-status'>Loading...</td><td><a href='https://jira-software.status.atlassian.com/' target='_blank'>View</a></td></tr>
-<tr><td>Confluence</td><td id='confluence-status'>Loading...</td><td><a href='https://confluence.status.atlassian.com/' target='_blank'>View</a></td></tr>
-<tr><td>GitHub</td><td id='github-status'>Loading...</td><td><a href='https://www.githubstatus.com/' target='_blank'>View</a></td></tr>
-<tr><td>CucumberStudio</td><td id='cucumberstudio-status'>Loading...</td><td><a href='https://status.cucumberstudio.com/' target='_blank'>View</a></td></tr>
-<tr><td>Fivetran</td><td id='fivetran-status'>Loading...</td><td><a href='https://status.fivetran.com/' target='_blank'>View</a></td></tr>
-<tr><td>Brainboard</td><td id='brainboard-status'>Loading...</td><td><a href='https://status.brainboard.co/' target='_blank'>View</a></td></tr>
-<tr><td>Port</td><td id='port-status'>Loading...</td><td><a href='https://status.port.io/' target='_blank'>View</a></td></tr>
+<tr><td>Azure Status</td><td id='azure-status-status'><span class='badge'>Loading...</span></td><td><a href='https://azure.status.microsoft/en-us/status' target='_blank'>View</a></td></tr>
+<tr><td>Azure DevOps</td><td id='azure-devops-status'><span class='badge'>Loading...</span></td><td><a href='https://status.dev.azure.com/' target='_blank'>View</a></td></tr>
+<tr><td>Azure Databricks</td><td id='azure-databricks-status'><span class='badge'>Loading...</span></td><td><a href='https://status.azuredatabricks.net/' target='_blank'>View</a></td></tr>
+<tr><td>JFrog</td><td id='jfrog-status'><span class='badge'>Loading...</span></td><td><a href='https://status.jfrog.io/' target='_blank'>View</a></td></tr>
+<tr><td>Elastic</td><td id='elastic-status'><span class='badge'>Loading...</span></td><td><a href='https://status.elastic.co/' target='_blank'>View</a></td></tr>
+<tr><td>Octopus</td><td id='octopus-status'><span class='badge'>Loading...</span></td><td><a href='https://status.octopus.com/' target='_blank'>View</a></td></tr>
+<tr><td>Lucid</td><td id='lucid-status'><span class='badge'>Loading...</span></td><td><a href='https://status.lucid.co/' target='_blank'>View</a></td></tr>
+<tr><td>Jira Software</td><td id='jira-software-status'><span class='badge'>Loading...</span></td><td><a href='https://jira-software.status.atlassian.com/' target='_blank'>View</a></td></tr>
+<tr><td>Confluence</td><td id='confluence-status'><span class='badge'>Loading...</span></td><td><a href='https://confluence.status.atlassian.com/' target='_blank'>View</a></td></tr>
+<tr><td>GitHub</td><td id='github-status'><span class='badge'>Loading...</span></td><td><a href='https://www.githubstatus.com/' target='_blank'>View</a></td></tr>
+<tr><td>CucumberStudio</td><td id='cucumberstudio-status'><span class='badge'>Loading...</span></td><td><a href='https://status.cucumberstudio.com/' target='_blank'>View</a></td></tr>
+<tr><td>Fivetran</td><td id='fivetran-status'><span class='badge'>Loading...</span></td><td><a href='https://status.fivetran.com/' target='_blank'>View</a></td></tr>
+<tr><td>Brainboard</td><td id='brainboard-status'><span class='badge'>Loading...</span></td><td><a href='https://status.brainboard.co/' target='_blank'>View</a></td></tr>
+<tr><td>Port</td><td id='port-status'><span class='badge'>Loading...</span></td><td><a href='https://status.port.io/' target='_blank'>View</a></td></tr>
 </tbody>
 </table>
+</main>
+<footer class='foot'>Last updated: <span id='last-updated'>Loading...</span></footer>
 <script>
-async function fetchStatus(url, elementId, parser) {
-  try {
+function formatBadge(statusText){
+  let cls = 'down';
+  if(statusText.toLowerCase().includes('operational') || statusText.toLowerCase().includes('up')) cls = 'up';
+  else if(statusText.toLowerCase().includes('degraded')) cls = 'degraded';
+  return `<span class="badge ${cls}">${statusText}</span>`;
+}
+
+async function fetchStatus(url, elementId, parser){
+  try{
     const response = await fetch(url);
     const data = await response.json();
     const statusText = parser(data);
-    document.getElementById(elementId).innerText = statusText;
-    document.getElementById(elementId).className = statusText.toLowerCase().includes('operational') || statusText.toLowerCase().includes('up') ? 'status-up' : 'status-down';
-  } catch (error) {
-    document.getElementById(elementId).innerText = 'Unknown';
-    document.getElementById(elementId).className = 'status-unknown';
+    document.getElementById(elementId).innerHTML = formatBadge(statusText);
+  }catch(e){
+    document.getElementById(elementId).innerHTML = '<span class="badge degraded">Unknown</span>';
   }
 }
 
-function updateStatuses() {
-  document.getElementById('azure-status-status').innerText = 'Unknown';
-  document.getElementById('azure-status-status').className = 'status-unknown';
+function updateStatuses(){
+  document.getElementById('azure-status-status').innerHTML = '<span class="badge degraded">Unknown</span>';
   fetchStatus('https://status.dev.azure.com/api/v2/status.json', 'azure-devops-status', data => data.status.description);
   fetchStatus('https://status.azuredatabricks.net/api/v2/status.json', 'azure-databricks-status', data => data.status.description);
   fetchStatus('https://status.jfrog.io/api/v2/status.json', 'jfrog-status', data => data.status.description);
@@ -68,9 +69,10 @@ function updateStatuses() {
   fetchStatus('https://status.fivetran.com/api/v2/status.json', 'fivetran-status', data => data.status.description);
   fetchStatus('https://status.brainboard.co/api/v2/status.json', 'brainboard-status', data => data.status.description);
   fetchStatus('https://status.port.io/api/v2/status.json', 'port-status', data => data.status.description);
+  document.getElementById('last-updated').textContent = new Date().toLocaleString();
 }
 updateStatuses();
-setInterval(updateStatuses, 300000); // 5 minutes
+setInterval(updateStatuses, 300000);
 </script>
 </body>
 </html>
