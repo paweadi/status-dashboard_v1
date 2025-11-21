@@ -28,9 +28,10 @@ header {
 h1 { margin: 0 0 8px; }
 .ts { color: var(--muted); }
 
+
 main {
-  max-width: 900px; /* Wider for 4 columns */
-  margin-left: 20px; /* Align left */
+  width: 100%; /* Full width */
+  margin: 0; /* Remove left margin */
   padding: 16px;
 }
 
@@ -40,8 +41,8 @@ table {
 }
 
 th, td {
-  padding: 8px 10px; /* Compact padding */
-  border-bottom: 1px solid var(--border);
+  width: 25%; /* Equal space for 4 columns */
+  padding: 10px;
   text-align: left;
 }
 
