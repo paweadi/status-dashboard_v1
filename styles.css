@@ -40,7 +40,7 @@ table {
 }
 
 th, td {
-  width: 25%; /* Equal space for 4 columns */
+  width: 100%; /* Equal space for 4 columns */
   padding: 12px;
   border-bottom: 1px solid var(--border);
   text-align: justify;
