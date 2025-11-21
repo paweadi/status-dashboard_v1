@@ -37,11 +37,11 @@ main {
 
 table {
   width: 100%;
-  border-collapse: collapse;
+  table-layout: fixed;
 }
 
 th, td {
-  width: 25%; /* Equal space for 4 columns */
+  width: auto; /* Equal space for 4 columns */
   padding: 10px;
   text-align: left;
 }
@@ -53,9 +53,9 @@ th {
 
 /* Column width adjustments for 4 columns */
 th:nth-child(1), td:nth-child(1) { width: 30%; } /* Service */
-th:nth-child(2), td:nth-child(2) { width: 30%; } /* Status */
+th:nth-child(2), td:nth-child(2) { width: 20%; } /* Status */
 th:nth-child(3), td:nth-child(3) { width: 35%; } /* Description */
-th:nth-child(4), td:nth-child(4) { width: 20%; } /* Link */
+th:nth-child(4), td:nth-child(4) { width: 15%; } /* Link */
 
 .badge {
   padding: 4px 10px;
