@@ -5,6 +5,13 @@
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
 <title>Service Status Dashboard</title>
 <link rel='stylesheet' href='styles.css'>
+<style>
+main { max-width: 900px; margin-left: 20px; padding: 16px; }
+th:nth-child(1), td:nth-child(1) { width: 30%; }
+th:nth-child(2), td:nth-child(2) { width: 15%; }
+th:nth-child(3), td:nth-child(3) { width: 35%; }
+th:nth-child(4), td:nth-child(4) { width: 20%; }
+</style>
 </head>
 <body>
 <header>
@@ -14,23 +21,23 @@
 <main>
   <table>
     <thead>
-      <tr><th>Service</th><th>Status</th><th>Link</th></tr>
+      <tr><th>Service</th><th>Status</th><th>Description</th><th>Link</th></tr>
     </thead>
     <tbody>
-<tr><td>Azure Status</td><td id='azure-status-status'><span class='badge'>Loading...</span></td><td><a href='https://azure.status.microsoft/en-us/status' target='_blank'>View</a></td></tr>
-<tr><td>Azure DevOps</td><td id='azure-devops-status'><span class='badge'>Loading...</span></td><td><a href='https://status.dev.azure.com/' target='_blank'>View</a></td></tr>
-<tr><td>Azure Databricks</td><td id='azure-databricks-status'><span class='badge'>Loading...</span></td><td><a href='https://status.azuredatabricks.net/' target='_blank'>View</a></td></tr>
-<tr><td>JFrog</td><td id='jfrog-status'><span class='badge'>Loading...</span></td><td><a href='https://status.jfrog.io/' target='_blank'>View</a></td></tr>
-<tr><td>Elastic</td><td id='elastic-status'><span class='badge'>Loading...</span></td><td><a href='https://status.elastic.co/' target='_blank'>View</a></td></tr>
-<tr><td>Octopus</td><td id='octopus-status'><span class='badge'>Loading...</span></td><td><a href='https://status.octopus.com/' target='_blank'>View</a></td></tr>
-<tr><td>Lucid</td><td id='lucid-status'><span class='badge'>Loading...</span></td><td><a href='https://status.lucid.co/' target='_blank'>View</a></td></tr>
-<tr><td>Jira Software</td><td id='jira-software-status'><span class='badge'>Loading...</span></td><td><a href='https://jira-software.status.atlassian.com/' target='_blank'>View</a></td></tr>
-<tr><td>Confluence</td><td id='confluence-status'><span class='badge'>Loading...</span></td><td><a href='https://confluence.status.atlassian.com/' target='_blank'>View</a></td></tr>
-<tr><td>GitHub</td><td id='github-status'><span class='badge'>Loading...</span></td><td><a href='https://www.githubstatus.com/' target='_blank'>View</a></td></tr>
-<tr><td>CucumberStudio</td><td id='cucumberstudio-status'><span class='badge'>Loading...</span></td><td><a href='https://status.cucumberstudio.com/' target='_blank'>View</a></td></tr>
-<tr><td>Fivetran</td><td id='fivetran-status'><span class='badge'>Loading...</span></td><td><a href='https://status.fivetran.com/' target='_blank'>View</a></td></tr>
-<tr><td>Brainboard</td><td id='brainboard-status'><span class='badge'>Loading...</span></td><td><a href='https://status.brainboard.co/' target='_blank'>View</a></td></tr>
-<tr><td>Port</td><td id='port-status'><span class='badge'>Loading...</span></td><td><a href='https://status.port.io/' target='_blank'>View</a></td></tr>
+<tr><td>Azure Status</td><td id='azure-status-status'><span class='badge'>Loading...</span></td><td id='azure-status-desc'>Loading...</td><td><a href='https://azure.status.microsoft/en-us/status' target='_blank'>View</a></td></tr>
+<tr><td>Azure DevOps</td><td id='azure-devops-status'><span class='badge'>Loading...</span></td><td id='azure-devops-desc'>Loading...</td><td><a href='https://status.dev.azure.com/' target='_blank'>View</a></td></tr>
+<tr><td>Azure Databricks</td><td id='azure-databricks-status'><span class='badge'>Loading...</span></td><td id='azure-databricks-desc'>Loading...</td><td><a href='https://status.azuredatabricks.net/' target='_blank'>View</a></td></tr>
+<tr><td>JFrog</td><td id='jfrog-status'><span class='badge'>Loading...</span></td><td id='jfrog-desc'>Loading...</td><td><a href='https://status.jfrog.io/' target='_blank'>View</a></td></tr>
+<tr><td>Elastic</td><td id='elastic-status'><span class='badge'>Loading...</span></td><td id='elastic-desc'>Loading...</td><td><a href='https://status.elastic.co/' target='_blank'>View</a></td></tr>
+<tr><td>Octopus</td><td id='octopus-status'><span class='badge'>Loading...</span></td><td id='octopus-desc'>Loading...</td><td><a href='https://status.octopus.com/' target='_blank'>View</a></td></tr>
+<tr><td>Lucid</td><td id='lucid-status'><span class='badge'>Loading...</span></td><td id='lucid-desc'>Loading...</td><td><a href='https://status.lucid.co/' target='_blank'>View</a></td></tr>
+<tr><td>Jira Software</td><td id='jira-software-status'><span class='badge'>Loading...</span></td><td id='jira-software-desc'>Loading...</td><td><a href='https://jira-software.status.atlassian.com/' target='_blank'>View</a></td></tr>
+<tr><td>Confluence</td><td id='confluence-status'><span class='badge'>Loading...</span></td><td id='confluence-desc'>Loading...</td><td><a href='https://confluence.status.atlassian.com/' target='_blank'>View</a></td></tr>
+<tr><td>GitHub</td><td id='github-status'><span class='badge'>Loading...</span></td><td id='github-desc'>Loading...</td><td><a href='https://www.githubstatus.com/' target='_blank'>View</a></td></tr>
+<tr><td>CucumberStudio</td><td id='cucumberstudio-status'><span class='badge'>Loading...</span></td><td id='cucumberstudio-desc'>Loading...</td><td><a href='https://status.cucumberstudio.com/' target='_blank'>View</a></td></tr>
+<tr><td>Fivetran</td><td id='fivetran-status'><span class='badge'>Loading...</span></td><td id='fivetran-desc'>Loading...</td><td><a href='https://status.fivetran.com/' target='_blank'>View</a></td></tr>
+<tr><td>Brainboard</td><td id='brainboard-status'><span class='badge'>Loading...</span></td><td id='brainboard-desc'>Loading...</td><td><a href='https://status.brainboard.co/' target='_blank'>View</a></td></tr>
+<tr><td>Port</td><td id='port-status'><span class='badge'>Loading...</span></td><td id='port-desc'>Loading...</td><td><a href='https://status.port.io/' target='_blank'>View</a></td></tr>
     </tbody>
   </table>
 </main>
@@ -43,32 +50,36 @@ function formatBadge(statusText){
   return `<span class="badge ${cls}">${statusText}</span>`;
 }
 
-async function fetchStatus(url, elementId, parser){
+async function fetchStatus(url, statusId, descId, parserStatus, parserDesc){
   try{
     const response = await fetch(url);
     const data = await response.json();
-    const statusText = parser(data);
-    document.getElementById(elementId).innerHTML = formatBadge(statusText);
+    const statusText = parserStatus(data);
+    const descText = parserDesc(data);
+    document.getElementById(statusId).innerHTML = formatBadge(statusText);
+    document.getElementById(descId).textContent = descText;
   }catch(e){
-    document.getElementById(elementId).innerHTML = '<span class="badge degraded">Unknown</span>';
+    document.getElementById(statusId).innerHTML = '<span class="badge degraded">Unknown</span>';
+    document.getElementById(descId).textContent = 'Unknown';
   }
 }
 
 function updateStatuses(){
   document.getElementById('azure-status-status').innerHTML = '<span class="badge degraded">Unknown</span>';
-  fetchStatus('https://status.dev.azure.com/api/v2/status.json', 'azure-devops-status', data => data.status.description);
-  fetchStatus('https://status.azuredatabricks.net/api/v2/status.json', 'azure-databricks-status', data => data.status.description);
-  fetchStatus('https://status.jfrog.io/api/v2/status.json', 'jfrog-status', data => data.status.description);
-  fetchStatus('https://status.elastic.co/api/v2/status.json', 'elastic-status', data => data.status.description);
-  fetchStatus('https://status.octopus.com/api/v2/status.json', 'octopus-status', data => data.status.description);
-  fetchStatus('https://status.lucid.co/api/v2/status.json', 'lucid-status', data => data.status.description);
-  fetchStatus('https://jira-software.status.atlassian.com/api/v2/status.json', 'jira-software-status', data => data.status.description);
-  fetchStatus('https://confluence.status.atlassian.com/api/v2/status.json', 'confluence-status', data => data.status.description);
-  fetchStatus('https://www.githubstatus.com/api/v2/status.json', 'github-status', data => data.status.description);
-  fetchStatus('https://status.cucumberstudio.com/api/v2/status.json', 'cucumberstudio-status', data => data.status.description);
-  fetchStatus('https://status.fivetran.com/api/v2/status.json', 'fivetran-status', data => data.status.description);
-  fetchStatus('https://status.brainboard.co/api/v2/status.json', 'brainboard-status', data => data.status.description);
-  fetchStatus('https://status.port.io/api/v2/status.json', 'port-status', data => data.status.description);
+  document.getElementById('azure-status-desc').textContent = 'Unknown';
+  fetchStatus('https://status.dev.azure.com/api/v2/status.json', 'azure-devops-status', 'azure-devops-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://status.azuredatabricks.net/api/v2/status.json', 'azure-databricks-status', 'azure-databricks-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://status.jfrog.io/api/v2/status.json', 'jfrog-status', 'jfrog-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://status.elastic.co/api/v2/status.json', 'elastic-status', 'elastic-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://status.octopus.com/api/v2/status.json', 'octopus-status', 'octopus-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://status.lucid.co/api/v2/status.json', 'lucid-status', 'lucid-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://jira-software.status.atlassian.com/api/v2/status.json', 'jira-software-status', 'jira-software-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://confluence.status.atlassian.com/api/v2/status.json', 'confluence-status', 'confluence-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://www.githubstatus.com/api/v2/status.json', 'github-status', 'github-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://status.cucumberstudio.com/api/v2/status.json', 'cucumberstudio-status', 'cucumberstudio-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://status.fivetran.com/api/v2/status.json', 'fivetran-status', 'fivetran-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://status.brainboard.co/api/v2/status.json', 'brainboard-status', 'brainboard-desc', data => data.status.description, data => data.status.description);
+  fetchStatus('https://status.port.io/api/v2/status.json', 'port-status', 'port-desc', data => data.status.description, data => data.status.description);
   document.getElementById('last-updated').textContent = new Date().toLocaleString();
 }
 updateStatuses();
