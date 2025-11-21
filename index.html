@@ -3,7 +3,7 @@
 <head>
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>Markel Services Dashboard</title>
+<title>Service Status Dashboard</title>
 <link rel='stylesheet' href='styles.css'>
 </head>
 <body>
@@ -12,11 +12,11 @@
   <p class='ts'>Auto-refresh every 5 minutes</p>
 </header>
 <main>
-<table>
-<thead>
-<tr><th>Service</th><th>Status</th><th>Link</th></tr>
-</thead>
-<tbody>
+  <table>
+    <thead>
+      <tr><th>Service</th><th>Status</th><th>Link</th></tr>
+    </thead>
+    <tbody>
 <tr><td>Azure Status</td><td id='azure-status-status'><span class='badge'>Loading...</span></td><td><a href='https://azure.status.microsoft/en-us/status' target='_blank'>View</a></td></tr>
 <tr><td>Azure DevOps</td><td id='azure-devops-status'><span class='badge'>Loading...</span></td><td><a href='https://status.dev.azure.com/' target='_blank'>View</a></td></tr>
 <tr><td>Azure Databricks</td><td id='azure-databricks-status'><span class='badge'>Loading...</span></td><td><a href='https://status.azuredatabricks.net/' target='_blank'>View</a></td></tr>
@@ -31,10 +31,10 @@
 <tr><td>Fivetran</td><td id='fivetran-status'><span class='badge'>Loading...</span></td><td><a href='https://status.fivetran.com/' target='_blank'>View</a></td></tr>
 <tr><td>Brainboard</td><td id='brainboard-status'><span class='badge'>Loading...</span></td><td><a href='https://status.brainboard.co/' target='_blank'>View</a></td></tr>
 <tr><td>Port</td><td id='port-status'><span class='badge'>Loading...</span></td><td><a href='https://status.port.io/' target='_blank'>View</a></td></tr>
-</tbody>
-</table>
+    </tbody>
+  </table>
 </main>
-<footer class='foot'>Last updated: <span id='last-updated'>Loading...</span></footer>
+<footer>Last updated: <span id='last-updated'>Loading...</span></footer>
 <script>
 function formatBadge(statusText){
   let cls = 'down';
