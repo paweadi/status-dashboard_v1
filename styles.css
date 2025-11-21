@@ -28,9 +28,10 @@ header {
 h1 { margin: 0 0 8px; }
 .ts { color: var(--muted); }
 
+
 main {
   width: 100%; /* Full width */
-  margin: 0;
+  margin: 0; /* Remove left margin */
   padding: 16px;
 }
 
@@ -40,16 +41,21 @@ table {
 }
 
 th, td {
-  width: 100%; /* Equal space for 4 columns */
-  padding: 12px;
-  border-bottom: 1px solid var(--border);
-  text-align: justify;
+  width: 25%; /* Equal space for 4 columns */
+  padding: 10px;
+  text-align: left;
 }
 
 th {
   color: #cbd5e1;
   font-weight: 600;
 }
+
+/* Column width adjustments for 4 columns */
+th:nth-child(1), td:nth-child(1) { width: 30%; } /* Service */
+th:nth-child(2), td:nth-child(2) { width: 30%; } /* Status */
+th:nth-child(3), td:nth-child(3) { width: 35%; } /* Description */
+th:nth-child(4), td:nth-child(4) { width: 20%; } /* Link */
 
 .badge {
   padding: 4px 10px;
@@ -67,11 +73,4 @@ footer {
   padding: 12px 16px;
   border-top: 1px solid var(--border);
   text-align: center;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  th, td { width: auto; display: block; }
-  table, tbody, tr { display: block; }
-  td { padding: 8px; }
 }
