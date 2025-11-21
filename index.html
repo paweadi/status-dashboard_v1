@@ -7,9 +7,9 @@
 <link rel='stylesheet' href='styles.css'>
 <style>
 main { max-width: 900px; margin-left: 20px; padding: 16px; }
-th:nth-child(1), td:nth-child(1) { width: 30%; }
-th:nth-child(2), td:nth-child(2) { width: 30%; }
-th:nth-child(3), td:nth-child(3) { width: 35%; }
+th:nth-child(1), td:nth-child(1) { width: 25%; }
+th:nth-child(2), td:nth-child(2) { width: 25%; }
+th:nth-child(3), td:nth-child(3) { width: 30%; }
 th:nth-child(4), td:nth-child(4) { width: 20%; }
 </style>
 </head>
@@ -45,8 +45,16 @@ th:nth-child(4), td:nth-child(4) { width: 20%; }
 <script>
 function formatBadge(statusText){
   let cls = 'down';
-  if(statusText.toLowerCase().includes('operational') || statusText.toLowerCase().includes('up')) cls = 'up';
-  else if(statusText.toLowerCase().includes('degraded')) cls = 'degraded';
+  if(statusText.toLowerCase().includes('operational') || statusText.toLowerCase().includes('up')) {
+    cls = 'up';
+    statusText = 'Operational';
+  } else if(statusText.toLowerCase().includes('degraded')) {
+    cls = 'degraded';
+    statusText = 'Degraded';
+  } else if(statusText.toLowerCase().includes('partial') || statusText.toLowerCase().includes('major')) {
+    cls = 'down';
+    statusText = 'Down';
+  }
   return `<span class="badge ${cls}">${statusText}</span>`;
 }
 
